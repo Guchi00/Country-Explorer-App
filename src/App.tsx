@@ -8,7 +8,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="country" element={<Country />} />
-      <Home />
     </Routes>
   );
 }

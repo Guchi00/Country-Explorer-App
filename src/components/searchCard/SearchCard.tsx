@@ -14,7 +14,10 @@ export const SearchCard = ({ data }: SearchCardProps) => {
     setQuery(userInput);
   };
 
-  // console.log(countryData);
+  const filteredCountryData =
+    query === ""
+      ? data
+      : data.filter((country) => country.name.common.includes(query));
 
   return (
     <div className="searchCard">
@@ -29,17 +32,21 @@ export const SearchCard = ({ data }: SearchCardProps) => {
           value={query}
           onChange={handleChange}
         />
-        {data.slice(0, 2).map((country) => (
-          <div className="data_items" key={country.name.common}>
-            <Link to="">
+        <div className="data_container">
+          {filteredCountryData.map((country) => (
+            <Link
+              to={`/country/${country.name.common}`}
+              key={country.name.common}
+              className="data_items"
+            >
               <img
                 src={country.flags.svg}
                 alt={`${country.name.common} flag`}
               />
-              <h5>{country.name.common}</h5>
+              <h4>{country.name.common}</h4>
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
       </form>
     </div>
   );

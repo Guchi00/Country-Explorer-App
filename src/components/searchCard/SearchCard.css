@@ -1,5 +1,4 @@
 .searchCard {
-  height: 500px;
   width: 500px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding-left: 30px;
@@ -21,12 +20,56 @@
 }
 
 .data_container {
-  height: 80px;
-  width: 100%;
-  border: solid 1px;
+  width: 430px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  padding: 10px;
+}
 
-  img {
-    height: 30px;
-    width: 100px;
-  }
+.data_items {
+  gap: 13px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.data_items:hover {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+}
+
+.data_items img {
+  height: 25px;
+  width: 30px;
+}
+
+.data_items h4 {
+  padding-left: 15px;
+  border-style: none;
+}
+
+/* Custom scrollbar styling */
+.data_container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.data_container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.data_container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.data_container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
