@@ -1,5 +1,10 @@
 import React from "react";
+import { CountryDetails } from "../components/countryDetails/CountryDetails";
 
 export const Country = () => {
-  return <div>Country</div>;
+  return (
+    <div>
+      <CountryDetails />
+    </div>
+  );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SearchCard } from "../components/searchCard/SearchCard";
+import { CountrySearch } from "../components/countrySearch/CountrySearch";
 
 export interface Country {
   name: { common: string };
@@ -35,7 +35,7 @@ export const Home = () => {
 
   return (
     <div>
-      <SearchCard data={countryData} />
+      <CountrySearch data={countryData} />
     </div>
   );
 };

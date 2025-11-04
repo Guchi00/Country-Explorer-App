@@ -1,4 +1,4 @@
-export const CountryCard = () => {
+export const CountryDetails = () => {
   return (
     <div className="container">
       <div className="header">

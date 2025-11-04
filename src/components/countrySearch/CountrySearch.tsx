@@ -1,12 +1,12 @@
 import React, { useState, type ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import type { Country } from "../../pages/Home";
-import "./SearchCard.css";
+import "./CountrySearch.css";
 
 interface SearchCardProps {
   data: Country[];
 }
-export const SearchCard = ({ data }: SearchCardProps) => {
+export const CountrySearch = ({ data }: SearchCardProps) => {
   const [query, setQuery] = useState<string>("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
