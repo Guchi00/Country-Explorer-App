@@ -1,17 +1,35 @@
+import "./CountryDetails.css";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+
 export const CountryDetails = () => {
   return (
     <div className="container">
-      <div className="header">
-        <h4>Error</h4>
+      <Link to={`/`} className="header">
+        <ArrowLeftOutlined />
         <h4>back to home page</h4>
-      </div>
-      <div className="flag_and_name">
-        <div>flag</div>
+      </Link>
+      <div className="flag_and_countryname">
+        <img />
         <h1>Name Example: France</h1>
       </div>
-      <div className="country_details"></div>
-      <div>
+      <div className="country_details">
+        <h5>Region</h5>
+        <h5>Europe</h5>
+      </div>
+      <div className="borders">
         <h1>Borders</h1>
+        <div className="borders_name">
+          <Link to="country" className="country">
+            germanu
+          </Link>
+          <Link to="" className="country">
+            mali
+          </Link>
+          <Link to="" className="country">
+            nigerias
+          </Link>
+        </div>
       </div>
     </div>
   );

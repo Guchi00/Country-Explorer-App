@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { CountrySearch } from "../components/countrySearch/CountrySearch";
 
-export interface Country {
+export interface Countrry {
   name: { common: string };
   flags: { svg: string; png: string };
 }
 
 export const Home = () => {
-  const [countryData, setCountryData] = useState<Country[]>([]);
+  const [countries, setCountries] = useState<Countrry[]>([]);
 
   const getCountry = async () => {
     try {
@@ -18,10 +18,10 @@ export const Home = () => {
         throw new Error("Unable to fetch country data");
       }
       const data = await response.json();
-      const sortedData = data.sort((a: Country, b: Country) =>
+      const sortedData = data.sort((a: Countrry, b: Countrry) =>
         a.name.common.localeCompare(b.name.common)
       );
-      setCountryData(sortedData);
+      setCountries(sortedData);
     } catch (error) {
       console.log(`${error}`);
     }
@@ -31,11 +31,11 @@ export const Home = () => {
     getCountry();
   }, []);
 
-  console.log(countryData);
+  console.log(setCountries);
 
   return (
     <div>
-      <CountrySearch data={countryData} />
+      <CountrySearch data={countries} />
     </div>
   );
 };

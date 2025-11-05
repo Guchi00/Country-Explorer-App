@@ -1,10 +1,10 @@
 import React, { useState, type ChangeEvent } from "react";
 import { Link } from "react-router-dom";
-import type { Country } from "../../pages/Home";
+import type { Countrry } from "../../pages/Home";
 import "./CountrySearch.css";
 
 interface SearchCardProps {
-  data: Country[];
+  data: Countrry[];
 }
 export const CountrySearch = ({ data }: SearchCardProps) => {
   const [query, setQuery] = useState<string>("");
