@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CountrySearch } from "../components/countrySearch/CountrySearch";
 
 export interface Countrry {
   name: { common: string };
   flags: { svg: string; png: string };
+  capital?: string[];
+  population?: number;
+  language?: string;
+  region?: string;
+  subregion?: string;
+  borders?: string[];
+  languages?: { [key: string]: string };
+  currencies: { [key: string]: { name: string; symbol: string } };
+  timezones?: string[];
 }
 
 export const Home = () => {
@@ -22,6 +31,7 @@ export const Home = () => {
         a.name.common.localeCompare(b.name.common)
       );
       setCountries(sortedData);
+      localStorage.setItem("countries", sortedData);
     } catch (error) {
       console.log(`${error}`);
     }
@@ -31,7 +41,7 @@ export const Home = () => {
     getCountry();
   }, []);
 
-  console.log(setCountries);
+  console.log(countries);
 
   return (
     <div>

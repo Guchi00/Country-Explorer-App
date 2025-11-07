@@ -1,4 +1,4 @@
-import React, { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import type { Countrry } from "../../pages/Home";
 import "./CountrySearch.css";
@@ -17,7 +17,9 @@ export const CountrySearch = ({ data }: SearchCardProps) => {
   const filteredCountryData =
     query === ""
       ? data
-      : data.filter((country) => country.name.common.includes(query));
+      : data.filter((country) =>
+          country.name.common.toLowerCase().includes(query.toLowerCase())
+        );
 
   return (
     <div className="searchCard">

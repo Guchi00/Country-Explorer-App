@@ -1,11 +1,13 @@
 .container {
-  width: 600px;
-  /* height: 100vh; */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
   padding: 30px;
   border-radius: 8px;
   background-color: black;
-  /* border: solid 1px; */
+}
+
+.container p {
+  color: #c30707;
+  font-weight: 600;
 }
 
 .header {
@@ -22,14 +24,13 @@
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  /* height: 300px;
-  width: 100%; */
-  /* border: solid 1px red; */
+  margin-top: 17px;
+  margin-bottom: 25px;
 }
 
 .flag_and_countryname img {
   height: 150px;
-  width: 200px;
+  width: 250px;
 }
 
 .flag_and_countryname h1 {
@@ -40,30 +41,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
-  /* border: solid 1px red; */
+  flex-wrap: wrap;
+  height: 35px;
+  width: 340px;
 }
 
 .country_details h5 {
   color: #fff;
+  font-size: 15px;
 }
 
 .borders {
   color: #fff;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
-.borders_name {
+.countries {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   color: #fff;
+  padding-top: 10px;
+  padding-top: 10px;
 }
 
-.borders_name .country {
+.countries .country {
   color: #fff;
   text-decoration: none;
-  /* height: 30px; */
-  padding: 10px;
+  padding: 7px;
+  margin-top: 5px;
   border-radius: 10px;
-  background-color: grey;
+  background-color: rgb(33, 34, 33);
 }
