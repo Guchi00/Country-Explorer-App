@@ -18,7 +18,17 @@ export interface Countrry {
 export const Home = () => {
   const [countries, setCountries] = useState<Countrry[]>([]);
 
-  const getCountry = async () => {
+  const getCountries = async () => {
+    const storedCountries = localStorage.getItem("countries");
+    if (storedCountries) {
+      try {
+        const parsedCountries = JSON.parse(storedCountries);
+        setCountries(parsedCountries);
+        return;
+      } catch (error) {
+        console.log("Cache corrupted, loading fresh data");
+      }
+    }
     try {
       const response = await fetch(
         `https://restcountries.com/v3.1/all?fields=name,flags`
@@ -31,14 +41,14 @@ export const Home = () => {
         a.name.common.localeCompare(b.name.common)
       );
       setCountries(sortedData);
-      localStorage.setItem("countries", sortedData);
+      localStorage.setItem("countries", JSON.stringify(sortedData));
     } catch (error) {
-      console.log(`${error}`);
+      console.log(`Error ${error}`);
     }
   };
 
   useEffect(() => {
-    getCountry();
+    getCountries();
   }, []);
 
   console.log(countries);

@@ -22,13 +22,13 @@ export const CountrySearch = ({ data }: SearchCardProps) => {
         );
 
   return (
-    <div className="searchCard">
+    <div className="search_container">
       <form>
-        <h1>
-          Country <br></br>Explorer
-        </h1>
+        <h2>
+          Country <br></br> Explorer
+        </h2>
         <input
-          className="user_input"
+          className="country_search_input"
           placeholder="Search for a country"
           type="text"
           value={query}

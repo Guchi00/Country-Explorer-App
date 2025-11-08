@@ -19,18 +19,33 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
 
   useEffect(() => {
     const getCountryBorders = async () => {
-      try {
-        const codes = country?.borders?.join(",");
-        if (country?.borders && country.borders.length > 0) {
-          const response = await fetch(
-            `https://restcountries.com/v3.1/alpha?codes=${codes}`
-          );
-          if (!response.ok) {
-            throw new Error("Unable to fetch");
-          }
-          const borders = await response.json();
-          setCountryBorders(borders);
+      if (!country?.borders || country?.borders.length === 0) {
+        setCountryBorders([]);
+        return;
+      }
+
+      const codes = country.borders.join(",");
+      const cacheKey = `border${codes}`;
+      const cached = localStorage.getItem(cacheKey);
+
+      if (cached) {
+        try {
+          setCountryBorders(JSON.parse(cached));
+          return;
+        } catch (error) {
+          console.log("country detail cache error");
         }
+      }
+      try {
+        const response = await fetch(
+          `https://restcountries.com/v3.1/alpha?codes=${codes}&fields=name,cca3`
+        );
+        if (!response.ok) {
+          throw new Error("Unable to fetch");
+        }
+        const borders = await response.json();
+        setCountryBorders(borders);
+        localStorage.setItem(cacheKey, JSON.stringify(borders));
       } catch (error) {
         console.log(error);
       }
@@ -58,7 +73,7 @@ export const CountryDetails = ({ country }: CountryDetailsProps) => {
       </div>
       <div className="country_details">
         <h5>Population</h5>
-        <h5>{country?.population}</h5>
+        <h5>{country?.population?.toLocaleString()}</h5>
       </div>
 
       {country?.languages && (

@@ -1,4 +1,4 @@
-.searchCard {
+.search_container {
   width: 500px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding-left: 30px;
@@ -6,7 +6,7 @@
   border-radius: 8px;
 }
 
-.user_input {
+.country_search_input {
   width: 430px;
   height: 40px;
   font-size: 15px;
@@ -21,7 +21,7 @@
 
 .data_container {
   width: 430px;
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 8px;
@@ -71,4 +71,33 @@
 
 .data_container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media (max-width: 768px) {
+  .search_container {
+    width: 90%;
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  .country_search_input {
+    width: 100%;
+    font-size: 14px;
+    height: 38px;
+  }
+
+  .data_container {
+    width: 100%;
+    max-height: 450px;
+  }
+
+  .data_items img {
+    height: 20px;
+    width: 28px;
+  }
+
+  .data_items h4 {
+    font-size: 14px;
+    padding-left: 10px;
+  }
 }

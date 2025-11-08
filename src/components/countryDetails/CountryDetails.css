@@ -2,7 +2,7 @@
   width: 500px;
   padding: 30px;
   border-radius: 8px;
-  background-color: black;
+  background-color: rgb(13, 14, 14);
 }
 
 .container p {
@@ -39,11 +39,10 @@
 
 .country_details {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   height: 35px;
-  width: 340px;
+  width: 345px;
 }
 
 .country_details h5 {
@@ -71,6 +70,35 @@
   text-decoration: none;
   padding: 7px;
   margin-top: 5px;
+  padding: 5px 10px;
   border-radius: 10px;
   background-color: rgb(33, 34, 33);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .country_details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .country_details h5 {
+    font-size: 14px;
+    margin-top: 3px;
+    height: auto;
+  }
+
+  .countries {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .countries .country {
+    font-size: 14px;
+  }
 }
